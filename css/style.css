@@ -1,0 +1,227 @@
+/* ================================ ABRIL FATFACE FONT ================================ */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+/* ================================ SYNE FONT ================================ */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500&display=swap');
+/* =================================== MAIN STYLES ==================================== */
+:root {
+    --abril-fatface-font: 'Abril Fatface', cursive;
+    --syne-font: 'Syne', sans-serif;
+    --black-color: #150F37;
+    --primary-color: #8c57ff;
+    --white-color: #fff;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    border: 0;
+    text-decoration: none;
+    color: var(--black-color);
+    font-family: var(--syne-font);
+}
+
+body {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+::selection {
+    background: var(--primary-color);
+    color: var(--white-color);
+}
+
+/* ======================================= HEADER ===================================== */
+.header {
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--white-color);
+    overflow: hidden;
+    padding: 0 4rem;
+}
+
+.header .navBar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.header .navBar a.link {
+    transition: all 0.2s ease-in-out;
+}
+
+.header .navBar a.link:hover {
+    color: var(--primary-color);
+}
+/* ==================================== HERO PAGE ==================================== */
+.heroPage {
+    width: 100%;
+    height: calc(100% - 100px);
+    position: relative;
+    top: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.heroPage .leftSide {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-left: 4rem;
+}
+
+.heroPage .leftSide .content h1, .heroPage .leftSide .content span {
+    font-family: var(--abril-fatface-font);
+    font-size: 64px;
+}
+
+.heroPage .leftSide .content span {
+    color: var(--primary-color);
+}
+
+.heroPage .leftSide .btn {
+    padding: 0.5rem 2.5rem;
+    width: fit-content;
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 2rem;
+    box-shadow: var(--primary-color) 0px 10px 36px 0px, var(--primary-color) 0px 0px 0px 1px;
+    transition: all 0.2s ease-in-out;
+}
+
+.heroPage .leftSide .btn:hover {
+    background-color: var(--black-color);
+    box-shadow: var(--black-color) 0px 10px 36px 0px, var(--black-color) 0px 0px 0px 1px;
+}
+
+.heroPage .leftSide img {
+    width: 10%;
+    z-index: -1;
+}
+
+.heroPage .rightSide {
+    width: 100%;
+}
+
+.heroPage .rightSide img {
+    width: 100%;
+}
+
+.heroPage .last-image {
+    position: absolute;
+    top: -8rem;
+    right: 4rem;
+    z-index: -1;
+    width: 10%;
+}
+
+/* ==================================== RESPONSIVE ==================================== */
+
+.bars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+    position: fixed;
+    right: 4rem;
+    z-index: 99;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    display: none;
+}
+
+.bars .bar {
+    width: 40px;
+    height: 2px;
+    background-color: var(--black-color);
+    transition: all 0.2s ease-in-out;
+}
+
+.bars.active {
+    gap: 1px;
+}
+
+.bars.active .bar-1 {
+    transform: rotate(45deg) translateY(4px);
+}
+
+.bars.active .bar-2 {
+    opacity: 0;
+}
+
+.bars.active .bar-3 {
+    transform: rotate(-45deg) translateY(-4px);
+}
+
+@media screen and (max-width: 992px) {
+    .header .navBar {
+        transform: translateX(200%);
+    }
+
+    .header .navBar.active {
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: 98;
+        transform: translateX(0%);
+        flex-direction: column;
+        height: 100%;
+        width: 50%;
+        background-color: var(--black-color);
+    }
+
+    .header .navBar.active a {
+        color: #fff;
+    }
+
+    .bars {
+        display: flex;
+    }
+
+    .bars.active .bar {
+        background-color: #fff;
+    }
+
+    .heroPage {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .heroPage .leftSide {
+        align-items: center;
+        padding-right: 4rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .heroPage .leftSide .content h1, .heroPage .leftSide .content span {
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header, .heroPage .leftSide {
+        padding: 0 2rem;
+    }
+
+    .header .bars {
+        right: 2rem;
+    }
+
+    .header .navBar.active {
+        width: 100%;
+    }
+}
